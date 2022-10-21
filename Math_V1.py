@@ -1,6 +1,3 @@
-from calendar import c
-
-
 def quad_form():
     eqn = input("Enter the eqaution in <ax^2 + bx + c>: ")
     L = eqn.split("x")

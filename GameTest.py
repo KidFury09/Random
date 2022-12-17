@@ -1,7 +1,7 @@
 from random import shuffle
+import pandas as pd
 
-#added genders, cities and ages
-scores = {}
+scores = []
 players = []
 genders = []
 cities = []
@@ -30,7 +30,7 @@ print()
  
 def riddle():
  
-    global players, score, Id #more global variables
+    global players, score, Id 
  
     words = {"egg": "What has to be broken before you can use it? ",
              "candle": "I'm tall when I'm young and I'm short when I'm old. Who am I? ",
@@ -70,7 +70,7 @@ def riddle():
  
 def jumble():
  
-    global players, score, Id #more global variables
+    global players, score, Id
  
     words = ["computer","laugh","confidence","documentary","entertainment","practice"]
  
@@ -109,9 +109,9 @@ def jumble():
     print()
     
  
-for Id in range(len(players)): #changed from value based indexing to number based indexing. This makes it easier to read from all the lists. This is used in the end
-
-    print(f"{players[id]}'s turn to play")
+for Id in range(len(players)):
+ 
+    print(f"{players[Id]}'s turn to play")
     print()
     score = 0
     
@@ -120,7 +120,6 @@ for Id in range(len(players)): #changed from value based indexing to number base
         print("1. Riddles")
         print("2. Jumbled Words")
         print("3. Next player")
-        print("4. End Game")
         print()
         ch = int(input("Enter your choice: "))
         print()
@@ -134,20 +133,15 @@ for Id in range(len(players)): #changed from value based indexing to number base
         elif ch == 3:
             print("Thank you for playing")
             print()
-            break
- 
-        elif ch==4:
-            print("Thank you for playing")
-            print()
+            scores.append(score)
             break
  
         else:
             print("Invalid option")
             print()
-    # gives score in the form of {name : score, gender, age}
-    # eg print(scores) give
-    #{Megan : [100, F, Sharjah, 17], Hayden : [80, M, Sharjah, 17]}
-    scores[players[Id]] = [score, genders[Id], cities[Id], ages[Id]]
+    
 
-print(scores)
-# Dont include this last line, its only for the prgrammer to see their score
+data = {"Name" : players, "Score" : scores, "Gender" : genders, "City" : cities, "Age" : ages}
+
+df = pd.DataFrame(data)
+df.to_excel(r"")

@@ -43,3 +43,43 @@ def vector_mag():
 
 def mag_cross_prod(m1, m2, a):
     return m1 * m2 * sin(a)
+
+def matrix_mul(m1, m2): #[[x1,x2],[y1,y2]] works with sqaure matrix
+    
+    n1 = len(m1)
+    arr1 = []
+    arr2 = []
+
+    for i in m1:
+        arr1.append(i)
+
+    for i in range(n1):
+        l = []
+        
+        for j in m2:
+            l.append(j[i])
+
+        arr2.append(l)
+
+    arr3 = []
+
+    for i in range(n1):
+        l = []
+        
+        for j in range(n1):
+            x = arr1[i][j]  * arr2[i][j]
+            l.append(x)
+
+        arr3.append(l)
+
+    result = []
+
+    for i in arr3:
+        t = 0
+        
+        for j in i:
+            t += j
+        
+        result.append(t)
+
+    return result

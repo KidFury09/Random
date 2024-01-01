@@ -17,9 +17,9 @@ def main():
     print()
     print("There is exactly:")
     
-    print("Days: ", p.number_to_words(day, andword="").capitalize() + " days")
-    print("Minutes: ", p.number_to_words(minutes, andword="").capitalize() + " minutes")
-    print("Seconds: ", p.number_to_words(seconds, andword="").capitalize() + " seconds")
+    print("Number of Days: ", p.number_to_words(day, andword="").capitalize() + " days")
+    print("Number of Minutes: ", p.number_to_words(minutes, andword="").capitalize() + " minutes")
+    print("Number of Seconds: ", p.number_to_words(seconds, andword="").capitalize() + " seconds")
 
     print(f"To {today.year + 1}")
     print()
